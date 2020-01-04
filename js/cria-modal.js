@@ -10,20 +10,38 @@ function criaModalSerie(nome, genero, imagem, sumario, dt_lanc, nota) {
 	generoModal.style.textAlign = 'left'
 	generoModal.style.marginLeft = '10px'
 
-	favModal = document.getElementById('favoritar')
-	favModal.style.fontSize = '25px'
-	if (color != '' && nome == favorito.nome) {
-		favModal.style.color = favorito.color.toString()
-	} else {
+	favModal = document.createElement('i')
+	favModal.id = nome
+	favModal.style.marginLeft = '15px'
+	favModal.className = 'fas fa-star'
+	let listaFav = Array()
+	listaFav = recuperaFav()
+	//console.log(listaFav)
+	if (listaFav.indexOf(nome) != -1) {
+		favModal.style.color = 'yellow'
+	}
+	if (listaFav.indexOf(nome) == -1) {
 		favModal.style.color = 'gray'
 	}
+	favModal.addEventListener('click', function() {
+		if (favModal.style.color == 'gray') {
+			favModal.style.color = 'yellow'
+			favSerie(nome)
+			alert('Série Favoritada')
+		} else if (favModal.style.color == 'yellow') {
+			favModal.style.color = 'gray'
+			desfavSerie(nome)
+			alert('Série Desfavoritada')
+		}
+	})
+	tituloModal.appendChild(favModal)
 
 	imgModal = document.getElementById('imgModal')
 	imgModal.src = imagem
 	imgModal.style.margin = '0 auto'
 	imgModal.style.marginTop = '10px'
-	imgModal.width = '400'
-	imgModal.height = '300'
+	imgModal.width = '300'
+	imgModal.height = '250'
 
 	descModal = document.getElementById('modalCorpo')
 	descModal.innerHTML = sumario
