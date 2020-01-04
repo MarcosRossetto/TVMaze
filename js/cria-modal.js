@@ -16,7 +16,6 @@ function criaModalSerie(nome, genero, imagem, sumario, dt_lanc, nota) {
 	favModal.className = 'fas fa-star'
 	let listaFav = Array()
 	listaFav = recuperaFav()
-	//console.log(listaFav)
 	if (listaFav.indexOf(nome) != -1) {
 		favModal.style.color = 'yellow'
 	}
@@ -32,6 +31,7 @@ function criaModalSerie(nome, genero, imagem, sumario, dt_lanc, nota) {
 			favModal.style.color = 'gray'
 			desfavSerie(nome)
 			alert('Série Desfavoritada')
+			location.reload()
 		}
 	})
 	tituloModal.appendChild(favModal)

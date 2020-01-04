@@ -5,7 +5,7 @@ function salvaPesquisa() {
 	if (campo == '') {
 		alert('Campo Vazio')
 	} else {
-		window.location.href = 'pag-busca' + '/' + campo + '.html'
+		window.location.href = 'pag-busca.html'
 		pesquisaSerie(recuperaValorPesquisa())
 	}
 }

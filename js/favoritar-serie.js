@@ -16,12 +16,8 @@ function recuperaFav() {
 	let listaFav = Array()
 	for (let i = 0; i <= id; i++) {
 		let fav = JSON.parse(localStorage.getItem(i))
-		/*if (fav === null || listaFav.indexOf(fav) != -1) {
-			continue
-		}*/
 		listaFav.push(fav)
 	}
-	console.log(listaFav)
 	return listaFav
 }
 
