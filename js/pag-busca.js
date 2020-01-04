@@ -1,0 +1,2 @@
+serie = recuperaValorPesquisa()
+pesquisaSerie(serie)
